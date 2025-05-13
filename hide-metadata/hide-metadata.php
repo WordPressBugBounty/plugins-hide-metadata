@@ -5,7 +5,7 @@
  * Plugin URI: http://catchplugins.com/plugins/hide-metadata
  * Author: Catch Plugins
  * Author URI: http://catchplugins.com/
- * Version: 1.2.8
+ * Version: 1.2.9
  * License: GPL2
  * Text Domain: hide-metadata
  * Domain Path: /languages
@@ -28,7 +28,7 @@
 	Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-define( 'HIDE_METADATA_VERSION', '1.2.8' );
+define( 'HIDE_METADATA_VERSION', '1.2.9' );
 define( 'HIDE_METADATA_BASENAME', plugin_basename( __FILE__ ) );
 
 class Hide_Metadata {
