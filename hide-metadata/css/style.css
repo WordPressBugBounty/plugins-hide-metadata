@@ -1,4 +1,49 @@
 .entry-meta .byline,
-.entry-header .entry-meta > span.byline{
+.entry-header .entry-meta>span.byline {
     display: none;
+}
+
+/* Hide with css and author */
+
+.hide-meta-author .entry-meta .byline,
+.hide-meta-author .entry-meta .by-author,
+.hide-meta-author.entry-header .entry-meta>span.byline,
+.hide-meta-author .entry-meta .author.vcard {
+    display: none;
+}
+
+/* Hide with css and date */
+
+.hide-meta-date .entry-meta .posted-on,
+.hide-meta-date .entry-header .entry-meta>span.posted-on {
+    display: none;
+}
+
+/* Hide with php and date */
+
+.hide-meta-date-php .entry-meta .posted-on:before,
+.hide-meta-date-php .entry-header .entry-meta>span.posted-on:before,
+.hide-meta-date-php .entry-meta .posted-on:after,
+.hide-meta-date-php .entry-header .entry-meta>span.posted-on:after,
+.hide-meta-date-php .entry-meta .posted-on,
+.hide-meta-date-php .entry-header .entry-meta>span.posted-on {
+    content: '';
+    display: none;
+    margin: 0;
+}
+
+/* Hide with php and author */
+
+.hide-meta-author-php .entry-meta .byline:before,
+.hide-meta-author-php .entry-header .entry-meta span.byline:before,
+.hide-meta-author-php .entry-meta .byline:after,
+.hide-meta-author-php .entry-header .entry-meta span.byline:after,
+.hide-meta-author-php.single .byline,
+.hide-meta-author-php .group-blog .byline,
+.hide-meta-author-php .entry-meta .byline,
+.hide-meta-author-php .entry-header .entry-meta>span.byline,
+.hide-meta-author-php .entry-meta .author.vcard {
+    content: '';
+    display: none;
+    margin: 0;
 }

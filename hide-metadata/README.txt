@@ -3,8 +3,8 @@ Contributors: catchplugins, catchthemes, sakinshrestha, pratikshrestha, maheshma
 Donate link: https://catchplugins.com/plugins/hide-metadata/
 Tags: hide, remove, metadata, author, date, posted-on
 Requires at least: 5.9
-Tested up to: 6.8
-Stable tag: trunk
+Tested up to: 7.0
+Stable tag: 2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -38,6 +38,12 @@ Not so easy way (via FTP) :
 * Go to **Hide/Remove Metadata** from Dashboard menu
 
 == Changelog ==
+
+= 2.0 (Released: March 09, 2026) =
+* Bug Fixed : WordPress.Security.EscapeOutput.OutputNotEscaped
+* Bug Fixed: WordPress.WP.I18n.MissingArgDomain
+* Bug Fixed: outdated_tested_upto_header
+* Compatibility check up to version 7.0
 
 = 1.2.9 (Released: May 11, 2025) =
 * Compatibility check up to version 6.8
