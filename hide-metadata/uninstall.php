@@ -30,7 +30,7 @@ if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 	exit;
 }
 
-$option_name = 'hide_metadata_options';
+$option_name = 'hide_metadata_options'; // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound -- file-scope variable in uninstall.php; no class context available.
 
 delete_option( $option_name );
 

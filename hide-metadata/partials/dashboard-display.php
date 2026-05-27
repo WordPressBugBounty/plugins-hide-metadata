@@ -23,7 +23,7 @@ if (! defined('ABSPATH')) {
 			<h2><?php esc_html_e('Settings', 'hide-metadata'); ?></h2>
 		</div> <!-- .Header -->
 		<div class="content">
-			<?php if (isset($_GET['settings-updated'])) { ?>
+			<?php if (isset($_GET['settings-updated'])) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- standard WordPress settings-updated flag; value is never used. ?>
 				<div id="message" class="notice updated fade">
 					<p><strong><?php esc_html_e('Plugin Options Saved.', 'hide-metadata'); ?></strong></p>
 				</div>
@@ -36,7 +36,7 @@ if (! defined('ABSPATH')) {
 				<form method="post" action="options.php">
 					<?php settings_fields('hide-metadata-group'); ?>
 					<?php
-					$settings = hide_metadata_get_options();
+					$settings = hide_metadata_get_options(); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound -- template-scope variable inside a required partial.
 					?>
 					<div class="option-container">
 						<table class="form-table" bgcolor="white">

@@ -3,8 +3,9 @@ Contributors: catchplugins, catchthemes, sakinshrestha, pratikshrestha, maheshma
 Donate link: https://catchplugins.com/plugins/hide-metadata/
 Tags: hide, remove, metadata, author, date, posted-on
 Requires at least: 5.9
+Requires PHP: 7.4
 Tested up to: 7.0
-Stable tag: 2.0
+Stable tag: 2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -38,6 +39,13 @@ Not so easy way (via FTP) :
 * Go to **Hide/Remove Metadata** from Dashboard menu
 
 == Changelog ==
+
+= 2.1 (Released: May 27, 2026) =
+* Bug Fixed: $_GET['page'] in enqueue_styles() and enqueue_scripts() now sanitized; NonceVerification suppressed with explanation
+* Bug Fixed: settings-updated $_GET check in dashboard partial annotated with NonceVerification phpcs:ignore
+* Bug Fixed: Erroneous get_the_title filter in remove_php() wiped all post titles when hide date by PHP was enabled
+* Bug Fixed: Settings link in plugin list pointed to admin.php instead of tools.php, causing a broken link
+* Code: NonPrefixedVariableFound phpcs:ignore added to $settings in dashboard partial and $option_name in uninstall.php
 
 = 2.0 (Released: March 09, 2026) =
 * Bug Fixed : WordPress.Security.EscapeOutput.OutputNotEscaped

@@ -5,7 +5,7 @@
  * Plugin URI: http://catchplugins.com/plugins/hide-metadata
  * Author: Catch Plugins
  * Author URI: http://catchplugins.com/
- * Version: 2.0
+ * Version: 2.1
  * License: GPL2
  * Text Domain: hide-metadata
  * Domain Path: /languages
@@ -34,7 +34,7 @@ if (! defined('ABSPATH')) {
 
 // Define Version
 if ( ! defined( 'HIDE_METADATA_VERSION' ) ) {
-	define( 'HIDE_METADATA_VERSION', '2.0' );
+	define( 'HIDE_METADATA_VERSION', '2.1' );
 }
 
 if ( ! defined( 'HIDE_METADATA_BASENAME' ) ) {
@@ -78,7 +78,8 @@ class Hide_Metadata
 	 */
 	function enqueue_styles()
 	{
-		if (isset($_GET['page']) && 'hide-metadata' === $_GET['page']) {
+		$hm_page = isset($_GET['page']) ? sanitize_text_field(wp_unslash($_GET['page'])) : ''; // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- read-only page check for admin style loading.
+		if ('hide-metadata' === $hm_page) {
 			wp_enqueue_style($this->plugin_name . '-display-dashboard', plugin_dir_url(__FILE__) . 'css/admin-dashboard.css', array(), $this->version, 'all');
 		}
 	}
@@ -97,7 +98,8 @@ class Hide_Metadata
 	 */
 	function enqueue_scripts()
 	{
-		if (isset($_GET['page']) && 'hide-metadata' === $_GET['page']) {
+		$hm_page = isset($_GET['page']) ? sanitize_text_field(wp_unslash($_GET['page'])) : ''; // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- read-only page check for admin script loading.
+		if ('hide-metadata' === $hm_page) {
 			wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . 'js/hide-metadata-admin.js', array('jquery', 'matchHeight', 'jquery-ui-tooltip'), $this->version, false);
 
 			wp_enqueue_script('matchHeight', plugin_dir_url(__FILE__) . 'js/jquery-matchHeight.min.js', array('jquery'), $this->version, false);
@@ -115,7 +117,7 @@ class Hide_Metadata
 	function action_links($links, $file)
 	{
 		if ($file === $this->plugin_name . '/' . $this->plugin_name . '.php') {
-			$settings_link = '<a href="' . esc_url(admin_url('admin.php?page=hide-metadata')) . '">' . esc_html__('Settings', 'hide-metadata') . '</a>';
+			$settings_link = '<a href="' . esc_url(admin_url('tools.php?page=hide-metadata')) . '">' . esc_html__('Settings', 'hide-metadata') . '</a>';
 
 			array_unshift($links, $settings_link);
 		}
@@ -230,7 +232,6 @@ class Hide_Metadata
 			add_filter('the_time', '__return_false');
 			add_filter('the_modified_date', '__return_false');
 			add_filter('get_the_date', '__return_false');
-			add_filter('get_the_title', '__return_false');
 			add_filter('get_the_time', '__return_false');
 			add_filter('get_the_modified_date', '__return_false');
 		}
